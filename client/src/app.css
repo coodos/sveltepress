@@ -1,0 +1,18 @@
+:root {
+    --primary: #3d3d3d;
+    --primary-hover: #5d5d5d;
+    /* color for when the primary color is selected */
+    --primary-alt: white;
+    --secondary: rgb(255, 60, 93);
+    --secondary-hover: rgb(255, 109, 134);
+    /* color to contrast secondary on bg */
+    --secondary-alt: white;
+    --body-background: white;
+    --header-bg: gray;
+    --header-text: #1d1d1d;
+    --body-text: black;
+    --alternate-color: blue;
+    --highlight-color: green;
+    --box-shadow: 10px 10px 10px 10px black;
+    --backdrop: rgba(100, 100, 100, 0.5);
+}

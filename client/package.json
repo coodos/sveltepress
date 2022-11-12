@@ -3,20 +3,36 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "nodeLinker": "node_modules",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/addon-svelte-csf": "^2.0.10",
+    "@storybook/builder-vite": "^0.2.5",
+    "@storybook/svelte": "^6.5.13",
+    "@storybook/testing-library": "^0.0.13",
     "@sveltejs/vite-plugin-svelte": "^1.1.0",
     "@tsconfig/svelte": "^3.0.0",
-    "svelte": "^3.52.0",
+    "babel-loader": "^8.3.0",
+    "svelte": "^3.53.1",
     "svelte-check": "^2.9.2",
+    "svelte-loader": "^3.1.4",
     "svelte-preprocess": "^4.10.7",
+    "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
     "typescript": "^4.6.4",
     "vite": "^3.2.3"
-  }
+  },
+  "dependencies": {}
 }
