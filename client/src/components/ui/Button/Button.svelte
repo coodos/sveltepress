@@ -2,14 +2,15 @@
     export let variant: "primary" | "secondary" = "primary";
     export let label: string;
     export let onClick: (...args: any[]) => void;
-    export let size: "large" | "medium" | "small " = "medium";
+    export let size: "large" | "medium" | "small" | "circular" = "medium";
 </script>
 
 <button
     class="button"
     class:alternative={variant === "secondary"}
     class:large={size === "large"}
-    class:small={size === "small "}
+    class:small={size === "small"}
+    class:circular={size === "circular"}
     on:click={onClick}>{label}</button
 >
 
@@ -41,6 +42,16 @@
     .small {
         font-size: 0.8rem;
         padding: 6px 12px;
+    }
+
+    .circular {
+        padding: 4px;
+        box-sizing: border-box;
+        font-size: 0.8rem;
+        width: 25px;
+        height: 25px;
+        border-radius: 20px;
+        text-transform: uppercase;
     }
 
     .large {

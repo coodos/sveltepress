@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Card } from "../";
+    import { Card, Button } from "../";
 
     export let isOpen: boolean = false;
     export let setIsOpen: (isOpen: boolean) => void;
@@ -9,15 +9,63 @@
     <div class="backdrop" on:click={() => setIsOpen(false)} />
     <div class="modal">
         <Card>
-            <slot name="buttons">
-                <button class="close-button" on:click={() => setIsOpen(false)}
-                    >x</button
-                ></slot
-            >
-            <div class="modal-header">
-                <slot name="header" />
+            <div class="modal-content">
+                <slot name="buttons">
+                    <div class="close-button">
+                        <Button
+                            label="x"
+                            size="circular"
+                            onClick={() => setIsOpen(false)}
+                        />
+                    </div>
+                </slot>
+                <div class="modal-header">
+                    <slot name="header" />
+                </div>
+                <slot />
             </div>
-            <slot />
         </Card>
     </div>
 {/if}
+
+<style>
+    .backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        z-index: 5;
+        background-color: var(--backdrop);
+    }
+
+    .modal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        background-color: var(--body-background);
+        border-radius: 5px;
+        max-width: 90vw;
+        min-width: 600px;
+    }
+
+    .modal .modal-content {
+        position: relative;
+    }
+
+    .modal .close-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: back;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .modal {
+            min-width: 80vw;
+        }
+    }
+</style>
