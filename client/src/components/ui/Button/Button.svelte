@@ -23,6 +23,7 @@
         transition: all 0.5s;
         border-radius: 5px;
         font-size: 1rem;
+        outline: none;
     }
 
     .button:hover {

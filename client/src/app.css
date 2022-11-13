@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Work+Sans:wght@300;400;700&display=swap");
 
 :root {
+    --header-font: "Work Sans", sans-serif;
+    --body-font: "Open Sans", sans-serif;
     --secondary: #3d3d3d;
     --secondary-hover: #5d5d5d;
     /* color for when the primary color is selected */
@@ -14,9 +16,12 @@
     --header-text: #3d3d3d;
     --body-text: black;
     --alternate-color: blue;
-    --highlight-color: green;
+    --highlight: rgb(255, 36, 109);
+    --highlight-hover: rgb(255, 131, 172);
     --box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
     --backdrop: rgba(100, 100, 100, 0.5);
+    --border: rgb(172, 172, 172);
+    --border-hover: rgb(120, 120, 120);
 }
 
 h1,
@@ -25,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Work Sans", sans-serif;
+    font-family: var(--header-font);
     font-weight: 700;
     color: var(--header-text);
     padding: 0;
@@ -33,7 +38,7 @@ h6 {
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: var(--body-font);
     font-weight: 400;
     color: var(--body-text);
 }

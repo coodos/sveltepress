@@ -1,13 +1,14 @@
 <script lang="ts">
     import { Card, Button } from "../";
+    import { fade, fly } from "svelte/transition";
 
     export let isOpen: boolean = false;
     export let setIsOpen: (isOpen: boolean) => void;
 </script>
 
 {#if isOpen}
-    <div class="backdrop" on:click={() => setIsOpen(false)} />
-    <div class="modal">
+    <div class="backdrop" on:click={() => setIsOpen(false)} transition:fade />
+    <div class="modal" transition:fly={{ y: 50, duration: 400 }}>
         <Card>
             <div class="modal-content">
                 <slot name="buttons">

@@ -3,7 +3,7 @@
     import Button from "../Button/Button.svelte";
     import Modal from "./Modal.svelte";
 
-    let isOpen = true;
+    let isOpen = false;
     function setIsOpen(state: boolean) {
         isOpen = state;
     }
