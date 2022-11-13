@@ -1,18 +1,17 @@
 <script>
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-    import { ButtonSizePresets, ButtonTypes } from "../../../types";
     import Button from "./Button.svelte";
 
     const args = {
-        variant: ButtonTypes.Primary,
-        size: ButtonSizePresets.Medium,
+        variant: "primary",
+        size: "medium",
         label: "hi button",
         onClick: () => {},
     };
 
     const secondaryArgs = {
         ...args,
-        variant: ButtonTypes.Secondary,
+        variant: "secondary",
     };
 </script>
 

@@ -1,17 +1,15 @@
 <script lang="ts">
-    import { ButtonTypes, ButtonSizePresets } from "../../../types";
-
-    export let variant: ButtonTypes = ButtonTypes.Primary;
+    export let variant: "primary" | "secondary" = "primary";
     export let label: string;
     export let onClick: (...args: any[]) => void;
-    export let size: ButtonSizePresets = ButtonSizePresets.Medium;
+    export let size: "large" | "medium" | "small " = "medium";
 </script>
 
 <button
     class="button"
-    class:alternative={variant === ButtonTypes.Secondary}
-    class:large={size === ButtonSizePresets.Big}
-    class:small={size === ButtonSizePresets.Small}
+    class:alternative={variant === "secondary"}
+    class:large={size === "large"}
+    class:small={size === "small "}
     on:click={onClick}>{label}</button
 >
 
