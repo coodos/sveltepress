@@ -7,6 +7,7 @@
 </script>
 
 {#if isOpen}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="backdrop" on:click={() => setIsOpen(false)} transition:fade />
     <div class="modal" transition:fly={{ y: 50, duration: 400 }}>
         <Card>
@@ -51,6 +52,11 @@
         border-radius: 5px;
         max-width: 90vw;
         min-width: 600px;
+    }
+
+    .modal-header {
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
     }
 
     .modal .modal-content {

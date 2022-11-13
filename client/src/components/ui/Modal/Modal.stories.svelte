@@ -14,19 +14,16 @@
 <Template>
     <Button label="show modal" onClick={() => setIsOpen(true)} />
     <Modal {isOpen} {setIsOpen}>
-        <h1 slot="header">Hi Soham</h1>
+        <h1 slot="header">The Final Solution</h1>
         <div class="modal-body">
             <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
-                atque consectetur natus magni itaque totam, illum fugit
-                veritatis neque. Ipsum hic cum voluptate quas voluptas possimus
-                facere, quod ducimus illum!
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                ducimus veritatis doloremque laboriosam alias dignissimos eius
-                cumque adipisci ut iusto, nam numquam laudantium error maxime?
-                Libero facilis voluptates sequi sit?
+                Ambition is very important for one's career for without ambition
+                one can't obtain the necessary motivation for one to achieve
+                their goals. However it is very important that one does not get
+                cancelled on twitter in pursuit of greatness for without musky
+                boi's blessing what are we but shit-brained neanderthals, thus
+                it is very important to hide your ambitions, never let them know
+                your next move, accept the sigma grindest.
             </p>
         </div>
         <Button label="Okay Bro 👍🏻" onClick={() => setIsOpen(false)} />
