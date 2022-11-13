@@ -1,17 +1,16 @@
 <script lang="ts">
-    import { ButtonTypes, ButtonSizePresets } from "../../../types";
-
-    export let variant: ButtonTypes = ButtonTypes.Primary;
+    export let variant: "primary" | "secondary" = "primary";
     export let label: string;
     export let onClick: (...args: any[]) => void;
-    export let size: ButtonSizePresets = ButtonSizePresets.Medium;
+    export let size: "large" | "medium" | "small" | "circular" = "medium";
 </script>
 
 <button
     class="button"
-    class:alternative={variant === ButtonTypes.Secondary}
-    class:large={size === ButtonSizePresets.Big}
-    class:small={size === ButtonSizePresets.Small}
+    class:alternative={variant === "secondary"}
+    class:large={size === "large"}
+    class:small={size === "small"}
+    class:circular={size === "circular"}
     on:click={onClick}>{label}</button
 >
 
@@ -24,6 +23,7 @@
         transition: all 0.5s;
         border-radius: 5px;
         font-size: 1rem;
+        outline: none;
     }
 
     .button:hover {
@@ -43,6 +43,16 @@
     .small {
         font-size: 0.8rem;
         padding: 6px 12px;
+    }
+
+    .circular {
+        padding: 4px;
+        box-sizing: border-box;
+        font-size: 0.8rem;
+        width: 25px;
+        height: 25px;
+        border-radius: 20px;
+        text-transform: uppercase;
     }
 
     .large {
