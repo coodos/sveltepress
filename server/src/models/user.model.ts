@@ -1,16 +1,28 @@
-import { DataTypes, Model, Sequelize } from "sequelize";
+import {
+    DataTypes,
+    Model,
+    Sequelize,
+    InferAttributes,
+    InferCreationAttributes,
+    CreationOptional,
+} from "sequelize";
 import bcrypt from "bcryptjs";
 
-export const userModel = (db: Sequelize) => {
-    class UserModel extends Model {
-        declare password: string;
-        declare id: string;
-        declare email: string;
+export class UserModel extends Model<
+    InferAttributes<UserModel>,
+    InferCreationAttributes<UserModel>
+> {
+    declare id: CreationOptional<string>;
+    declare password: string;
+    declare email: string;
+    declare isSuperUser: CreationOptional<boolean>;
 
-        async validateCredentials(password: string) {
-            return await bcrypt.compare(password, this.password);
-        }
+    async validateCredentials(password: string) {
+        return await bcrypt.compare(password, this.password);
     }
+}
+
+export const userModel = (db: Sequelize) => {
     UserModel.init(
         {
             id: {
@@ -27,6 +39,11 @@ export const userModel = (db: Sequelize) => {
             },
             password: {
                 type: DataTypes.STRING,
+                allowNull: false,
+            },
+            isSuperUser: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false,
                 allowNull: false,
             },
         },

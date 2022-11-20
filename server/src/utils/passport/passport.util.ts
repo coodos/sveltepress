@@ -1,7 +1,7 @@
 import Passport from "passport";
 import { Strategy, IVerifyOptions } from "passport-local";
 import { Identifier } from "sequelize";
-import { User } from "../models";
+import { User } from "../../models";
 
 export const initPassport = (passport: typeof Passport) => {
     const authenticate = async (
