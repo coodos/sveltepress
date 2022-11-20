@@ -3,7 +3,7 @@ import path from "path";
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
-const {
+export const {
     PORT,
     DB_PORT,
     DB_HOST,
@@ -12,15 +12,5 @@ const {
     DB_PASSWORD,
     LOG_PATH,
     LOG_LEVEL,
+    SESSION_SECRET,
 } = process.env;
-
-export {
-    PORT,
-    DB_HOST,
-    DB_NAME,
-    DB_PORT,
-    DB_USERNAME,
-    DB_PASSWORD,
-    LOG_LEVEL,
-    LOG_PATH,
-};

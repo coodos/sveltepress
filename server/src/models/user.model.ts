@@ -7,7 +7,7 @@ export const userModel = (db: Sequelize) => {
         declare id: string;
         declare email: string;
 
-        async matchPassword(password: string) {
+        async validateCredentials(password: string) {
             return await bcrypt.compare(password, this.password);
         }
     }
