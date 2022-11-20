@@ -1,13 +1,26 @@
 import dotenv from "dotenv";
 import path from "path";
 
-const _path = path.resolve(__dirname, "../../.env");
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
-dotenv.config({ path: _path });
+const {
+    PORT,
+    DB_PORT,
+    DB_HOST,
+    DB_NAME,
+    DB_USERNAME,
+    DB_PASSWORD,
+    LOG_PATH,
+    LOG_LEVEL,
+} = process.env;
 
-const config = process;
-const PORT = process.env.PORT as string;
-const LOG_PATH = process.env.LOG_PATH as string;
-const LOG_LEVEL = process.env.LOG_LEVEL as string;
-
-export { PORT, LOG_LEVEL, LOG_PATH };
+export {
+    PORT,
+    DB_HOST,
+    DB_NAME,
+    DB_PORT,
+    DB_USERNAME,
+    DB_PASSWORD,
+    LOG_LEVEL,
+    LOG_PATH,
+};
