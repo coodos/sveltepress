@@ -22,8 +22,12 @@ export const initPassport = (passport: typeof Passport) => {
     };
 
     passport.use(new Strategy({ usernameField: "email" }, authenticate));
-    // @ts-ignore
-    passport.serializeUser((user, cb) => cb(null, user.id));
+
+    passport.serializeUser((user, cb) => {
+        // @ts-ignore
+        return cb(null, user.id);
+    });
+
     passport.deserializeUser(async (id: Identifier, cb) => {
         const user = await User.findByPk(id).catch((err) => cb(null, null));
         if (!user) return cb(null, null);
