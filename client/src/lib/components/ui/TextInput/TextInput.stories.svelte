@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-	import TextInput from './TextInput.svelte';
+	import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
+	import TextInput from "./TextInput.svelte";
 
 	let value: string;
 </script>
@@ -12,4 +12,4 @@
 </Template>
 
 <Story name="TextInput" />
-<Story name="TextArea" args={{ variant: 'textarea' }} />
+<Story name="TextArea" args={{ variant: "textarea" }} />

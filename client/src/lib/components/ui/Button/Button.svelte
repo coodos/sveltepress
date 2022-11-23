@@ -1,16 +1,16 @@
 <script lang="ts">
-	export let variant: 'primary' | 'secondary' = 'primary';
+	export let variant: "primary" | "secondary" = "primary";
 	export let label: string;
 	export let onClick: (...args: any[]) => void;
-	export let size: 'large' | 'medium' | 'small' | 'circular' = 'medium';
+	export let size: "large" | "medium" | "small" | "circular" = "medium";
 </script>
 
 <button
 	class="button"
-	class:alternative={variant === 'secondary'}
-	class:large={size === 'large'}
-	class:small={size === 'small'}
-	class:circular={size === 'circular'}
+	class:alternative={variant === "secondary"}
+	class:large={size === "large"}
+	class:small={size === "small"}
+	class:circular={size === "circular"}
 	on:click={onClick}>{label}</button
 >
 

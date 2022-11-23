@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Card, Button } from '../';
-	import { fade, fly } from 'svelte/transition';
+	import { Card, Button } from "../";
+	import { fade, fly } from "svelte/transition";
 
 	export let isOpen = false;
 	export let setIsOpen: (isOpen: boolean) => void;

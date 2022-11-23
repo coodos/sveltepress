@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-	import Button from '../Button/Button.svelte';
-	import Modal from './Modal.svelte';
+	import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
+	import Button from "../Button/Button.svelte";
+	import Modal from "./Modal.svelte";
 
 	let isOpen = false;
 	function setIsOpen(state: boolean) {

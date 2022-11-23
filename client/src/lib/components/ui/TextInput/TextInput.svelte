@@ -1,12 +1,12 @@
 <script lang="ts">
 	export let value;
-	export let variant: 'textarea' | 'textbox' = 'textbox';
+	export let variant: "textarea" | "textbox" = "textbox";
 	export let placeholder: string;
 </script>
 
-{#if variant === 'textbox'}
+{#if variant === "textbox"}
 	<input type="text" bind:value {placeholder} class="text-input" />
-{:else if variant === 'textarea'}
+{:else if variant === "textarea"}
 	<textarea bind:value {placeholder} rows="10" class="text-input-block" />
 {/if}
 

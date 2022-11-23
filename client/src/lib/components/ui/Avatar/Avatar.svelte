@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let image: string;
-	export let variant: 'large' | 'medium' | 'small' = 'medium';
+	export let variant: "large" | "medium" | "small" = "medium";
 	export let text: string | null = null;
 	export let onClick: (...args: any[]) => any = () => null;
 </script>
@@ -11,8 +11,8 @@
 		src={image}
 		alt="user avatar"
 		class="avatar-img"
-		class:large={variant === 'large'}
-		class:small={variant === 'small'}
+		class:large={variant === "large"}
+		class:small={variant === "small"}
 	/>
 	{#if text}
 		<div class="accompanying-text">{text}</div>
