@@ -1,13 +1,13 @@
 import asyncHandler from "express-async-handler";
-import { User } from "@/models";
 import { Request, Response } from "express";
+import { UsersService } from "@/services";
 
 export const createUser = asyncHandler(async (req, res) => {
     const { email, password }: { email: string; password: string } = req.body;
     if (!(email && password)) {
         throw new Error("aww man");
     }
-    const user = await User.create({ email, password });
+    const user = await UsersService.create({ email, password });
     user.isSuperUser;
     res.json(user);
 });

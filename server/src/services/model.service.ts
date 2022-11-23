@@ -1,6 +1,8 @@
 import {
     Attributes,
     Identifier,
+    InferAttributes,
+    InferCreationAttributes,
     Model,
     ModelStatic,
     WhereOptions,
@@ -10,7 +12,9 @@ import { MakeNullishOptional } from "sequelize/types/utils";
 /**
  * Class to generate services UwU
  */
-export class ModelService<T extends Model<any, any>> {
+export class ModelService<
+    T extends Model<InferAttributes<T>, InferCreationAttributes<T>>
+> {
     model: ModelStatic<T>;
 
     /**
@@ -26,11 +30,11 @@ export class ModelService<T extends Model<any, any>> {
      * Create a new instance on the model table
      *
      * @param {MakeNullishOptional<T["_creationAttributes"]>} createOptions
-     * @returns Promise<Model<T>>
+     * @returns Promise<T>
      */
     async create(
         createOptions: MakeNullishOptional<T["_creationAttributes"]>
-    ): Promise<Model<T>> {
+    ): Promise<T> {
         return this.model.create({ ...createOptions });
     }
 
@@ -38,9 +42,9 @@ export class ModelService<T extends Model<any, any>> {
      * Find a singular entity which the matching where criteria
      *
      * @param {WhereOptions<Attributes<T>>} findOpts
-     * @returns Promise<Model<T>>
+     * @returns Promise<T>
      */
-    async findOne(findOpts: WhereOptions<Attributes<T>>): Promise<Model<T>> {
+    async findOne(findOpts: WhereOptions<Attributes<T>>): Promise<T> {
         return this.model.findOne({
             where: { ...findOpts },
         });
@@ -50,9 +54,9 @@ export class ModelService<T extends Model<any, any>> {
      * Find many entities on the table which the matching where criteria
      *
      * @param {WhereOptions<Attributes<T>>} findOpts
-     * @returns Promise<Model<T>[]>
+     * @returns Promise<T[]>
      */
-    async findMany(findOpts: WhereOptions<Attributes<T>>): Promise<Model<T>[]> {
+    async findMany(findOpts: WhereOptions<Attributes<T>>): Promise<T[]> {
         return this.model.findAll({
             where: { ...findOpts },
         });
@@ -62,9 +66,9 @@ export class ModelService<T extends Model<any, any>> {
      * Find a single entity by the ID (Primary Key)
      *
      * @param {Identifier} id
-     * @returns Promise<Model<T>>
+     * @returns Promise<T>
      */
-    async findById(id: Identifier): Promise<Model<T>> {
+    async findById(id: Identifier): Promise<T> {
         return this.model.findByPk(id);
     }
 
@@ -73,9 +77,12 @@ export class ModelService<T extends Model<any, any>> {
      * attributes supplied
      *
      * @param {Identifier} id
-     * @returns Promise<Model<T>>
+     * @returns Promise<T>
      */
-    async findByIdAndUpdate(id: Identifier, updateParams: Attributes<T>) {
+    async findByIdAndUpdate(
+        id: Identifier,
+        updateParams: Attributes<T>
+    ): Promise<T> {
         const entity = await this.model.findByPk(id);
         for (const key of Object.keys(entity)) {
             entity[key] = updateParams[key] ?? entity[key];
@@ -88,9 +95,9 @@ export class ModelService<T extends Model<any, any>> {
      * Find a single entity by the ID (Primary Key) and delete
      *
      * @param {Identifier} id
-     * @returns Promise<Model<T>>
+     * @returns Promise<T>
      */
-    async findByIdAndDelete(id: Identifier) {
+    async findByIdAndDelete(id: Identifier): Promise<T> {
         const entity = await this.model.findByPk(id);
         entity.destroy();
         return entity;
