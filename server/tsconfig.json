@@ -1,18 +1,15 @@
 {
+    "ts-node": {
+        "require": ["tsconfig-paths/register"]
+    },
     "compilerOptions": {
-        "rootDir": "./src",
+        "rootDir": "src",
         "module": "CommonJS",
+        "target": "ES2021",
         "outDir": "./dist",
-        "baseUrl": "./node_modules",
+        "baseUrl": "src/",
         "paths": {
-            "*": ["./@types/*", "./*", "../src/@types"],
-            "@config": ["./src/config/*"],
-            "@controllers/*": ["./src/controllers/*"],
-            "@middleware": ["./middleware/*"],
-            "@models": ["./models/*"],
-            "@routers": ["./src/controllers/*"],
-            "@services": ["./src/services/*"],
-            "@utils": ["./src/utils/*"]
+            "@/*": ["./*"]
         },
         "esModuleInterop": true,
         "typeRoots": ["./@types/", "./node_modules/@types/"]

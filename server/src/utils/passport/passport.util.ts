@@ -10,14 +10,14 @@ export const initPassport = (passport: typeof Passport) => {
         cb: (error: any, user?: any, options?: IVerifyOptions) => void
     ) => {
         const user = await User.findOne({ where: { email } }).catch((err) =>
-            cb(new Error(err))
+            cb(err)
         );
-        if (!user) return cb(new Error("404::user not found"));
+        if (!user) return cb(Error("404::user not found"));
         const compareResult = await user.validateCredentials(password);
         if (compareResult) {
             return cb(null, user);
         } else {
-            cb(new Error("400::invalid credentials"));
+            cb(Error("400::invalid credentials"));
         }
     };
 

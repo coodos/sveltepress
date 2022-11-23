@@ -1,10 +1,7 @@
 import { Router } from "express";
 import passport from "passport";
-import { createUser, getCurrentUser, indexUsers } from "../controllers";
-import {
-    isAdministrator,
-    isAuthenticated,
-} from "../middleware/access-control/auth.middleware";
+import { createUser, getCurrentUser, indexUsers } from "@/controllers";
+import { isAdministrator, isAuthenticated } from "@/middleware";
 
 const router = Router();
 

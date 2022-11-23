@@ -1,10 +1,10 @@
 import express from "express";
 import passport from "passport";
-import { PORT, SessionConfig } from "./config";
-import { Logger, initPassport } from "./utils";
-import { db } from "./models";
-import { router } from "./routers";
-import { ExpressErrorHandler } from "./middleware/handlers/error.handler";
+import { PORT, SessionConfig } from "@/config";
+import { Logger, initPassport } from "@/utils";
+import { db } from "@/models";
+import { router } from "@/routers";
+import { ExpressErrorHandler } from "@/middleware";
 
 const app = express();
 initPassport(passport);

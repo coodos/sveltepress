@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import { User } from "../models";
+import { User } from "@/models";
 import { Request, Response } from "express";
 
 export const createUser = asyncHandler(async (req, res) => {
