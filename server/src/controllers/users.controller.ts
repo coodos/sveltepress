@@ -3,12 +3,7 @@ import { Request, Response } from "express";
 import { UsersService } from "@/services";
 
 export const createUser = asyncHandler(async (req, res) => {
-    const { email, password }: { email: string; password: string } = req.body;
-    if (!(email && password)) {
-        throw new Error("aww man");
-    }
-    const user = await UsersService.create({ email, password });
-    user.isSuperUser;
+    const user = await UsersService.create({ ...req.body });
     res.json(user);
 });
 
