@@ -8,9 +8,16 @@ interface IDto {
 export const useDto = <T extends IDto>(dto: T) => {
     return (req: Request, res: Response, next: NextFunction) => {
         const obj = {};
-        for (const key of Object.keys(dto.fields)) {
-            if (dto.fields[key](req.body[key])) {
-                obj[key] = req.body[key];
+        let isMissed = false;
+        if (Object.keys(req.body).length < dto.mandatory.length)
+            isMissed = true;
+        if (!isMissed) {
+            for (const key of Object.keys(dto.fields)) {
+                if (dto.fields[key](req.body[key])) {
+                    obj[key] = req.body[key];
+                } else if (req.body[key]) {
+                    throw new Error(`400::Invalid value for "${key}"`);
+                }
             }
         }
         if (Object.keys(obj).length !== dto.mandatory.length) {
