@@ -2,5 +2,16 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint": "prettier --plugin-search-dir . --check . && eslint \"src/**/*.{ts,json}\"",
+    "format": "prettier --plugin-search-dir . --write .",
+    "format-check": "prettier -c \"**/*.{ts,js,json}\"",
+    "build": "echo set me up dude"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0"
+  }
 }

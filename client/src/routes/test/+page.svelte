@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button } from "$lib/components/ui"
+	import { Button } from '$lib/components/ui';
 </script>
 
-<Button onClick={() => {}} label="poog"></Button>
+<Button onClick={() => null} label="poog" />
