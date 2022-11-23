@@ -16,6 +16,6 @@ export const isAdministrator = (
     res: Response,
     next: NextFunction
 ) => {
-    if (!req.user.isSuperUser) createError(403, "Unauthorized");
+    if (!req.user.isSuperUser) throw new Error("404::Resource not found");
     next();
 };

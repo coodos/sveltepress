@@ -19,6 +19,6 @@ export const getCurrentUser = asyncHandler(
 );
 
 export const indexUsers = asyncHandler(async (req: Request, res: Response) => {
-    const users = await User.findAll();
+    const users = await UsersService.findMany({});
     res.json(users);
 });

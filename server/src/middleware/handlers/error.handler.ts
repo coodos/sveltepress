@@ -24,6 +24,6 @@ export const ExpressErrorHandler = (
             ? 500
             : Number(extractNumbers(statusCode))
     ).json({
-        error: { status: res.statusCode, message: errorMessage },
+        error: { code: res.statusCode, message: errorMessage },
     });
 };

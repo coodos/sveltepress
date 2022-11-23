@@ -4,7 +4,7 @@ import { PORT, SessionConfig } from "@/config";
 import { Logger, initPassport } from "@/utils";
 import { db } from "@/models";
 import { router } from "@/routers";
-import { ExpressErrorHandler } from "@/middleware";
+import { AppInterceptor, ExpressErrorHandler } from "@/middleware";
 
 const app = express();
 initPassport(passport);
@@ -14,6 +14,7 @@ app.use(SessionConfig);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(AppInterceptor);
 app.use("/api", router);
 
 app.use(ExpressErrorHandler);
