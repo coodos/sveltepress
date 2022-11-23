@@ -20,7 +20,7 @@ export const useDto = <T extends IDto>(dto: T) => {
                 }
             }
         }
-        if (Object.keys(obj).length !== dto.mandatory.length) {
+        if (Object.keys(obj).length < dto.mandatory.length) {
             const missed = [];
             for (const key of dto.mandatory) {
                 if (!req.body[key]) missed.push(key);

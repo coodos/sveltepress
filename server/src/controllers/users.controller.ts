@@ -17,3 +17,18 @@ export const indexUsers = asyncHandler(async (req: Request, res: Response) => {
     const users = await UsersService.findMany({});
     res.json(users);
 });
+
+export const logoutUser = asyncHandler(async (req: Request, res: Response) => {
+    req.logout((err) => {
+        if (err) throw new Error("500::Unable to logout, you're stuck with us");
+    });
+    res.json({});
+});
+
+export const updateUser = asyncHandler(async (req: Request, res: Response) => {
+    for (const key of Object.keys(req.body)) {
+        req.user[key] = req.body[key] ?? req.user[key];
+    }
+    await req.user.save();
+    res.json(req.user);
+});

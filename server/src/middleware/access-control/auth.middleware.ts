@@ -7,7 +7,8 @@ export const isAuthenticated = (
     res: Response,
     next: NextFunction
 ) => {
-    if (!req.isAuthenticated()) createError(401, "Bad session/missing token");
+    if (!req.isAuthenticated())
+        throw new Error("401::You need to login to view this resource");
     next();
 };
 
