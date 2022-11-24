@@ -1,0 +1,18 @@
+{
+    "ts-node": {
+        "require": ["tsconfig-paths/register"]
+    },
+    "compilerOptions": {
+        "rootDir": "src",
+        "module": "CommonJS",
+        "target": "ES2021",
+        "outDir": "./dist",
+        "baseUrl": "src/",
+        "paths": {
+            "@/*": ["./*"]
+        },
+        "esModuleInterop": true,
+        "typeRoots": ["./@types/", "./node_modules/@types/"]
+    },
+    "include": ["src/**/*.ts"]
+}
