@@ -4,7 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon ./src/server.ts | pino-pretty"
+    "dev": "nodemon ./src/server.ts | pino-pretty",
+    "lint": "prettier --plugin-search-dir . --check . && eslint \"src/**/*.{ts,json}\"",
+    "format": "prettier --plugin-search-dir . --write .",
+    "format-check": "prettier -c \"**/*.{ts,js,json}\"",
+    "build": "echo set me up dude"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -31,6 +35,9 @@
     "@types/node": "^18.11.9",
     "@types/passport": "^1.0.11",
     "@types/passport-local": "^1.0.34",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
     "nodemon": "^2.0.20",
     "pino-pretty": "^9.1.1",
     "ts-node": "^10.9.1",
