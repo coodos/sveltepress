@@ -14,4 +14,5 @@ export const {
     LOG_LEVEL,
     SESSION_SECRET,
     FILTER_KEYS,
+    ALLOWED_ORIGINS,
 } = process.env;

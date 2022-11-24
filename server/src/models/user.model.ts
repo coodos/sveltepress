@@ -52,7 +52,9 @@ export const userModel = (db: Sequelize) => {
             modelName: "User",
             hooks: {
                 beforeSave: async (user) => {
-                    user.password = await bcrypt.hash(user.password, 12);
+                    if (user.changed("password")) {
+                        user.password = await bcrypt.hash(user.password, 12);
+                    }
                 },
             },
         }
