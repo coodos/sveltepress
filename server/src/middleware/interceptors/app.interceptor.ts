@@ -11,6 +11,10 @@ export const AppInterceptor = Hijack({
         res: Response,
         next: NextFunction
     ) => {
-        res.json(sanitizeObject(body, FILTER_KEYS.split(",")));
+        if (res.getHeader("Content-Type") === "application/json") {
+            res.json(sanitizeObject(body, FILTER_KEYS.split(",")));
+        } else {
+            next();
+        }
     },
 });
