@@ -6,4 +6,4 @@ COPY ./client/package.json .
 COPY yarn.lock .
 COPY .env .
 
-CMD yarn; yarn dev
+CMD yarn; yarn dev -- --host
