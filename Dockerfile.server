@@ -1,0 +1,14 @@
+FROM node:16
+
+WORKDIR /app
+
+COPY ./server/package.json .
+COPY yarn.lock .
+COPY .env .
+
+
+COPY ./server/* . 
+
+RUN yarn
+
+CMD yarn; yarn dev

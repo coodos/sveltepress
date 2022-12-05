@@ -1,0 +1,11 @@
+FROM node:16-alpine
+
+WORKDIR /app
+
+COPY ./client/package.json .
+COPY yarn.lock .
+COPY .env .
+
+COPY ./client/* .
+
+CMD yarn; yarn storybook

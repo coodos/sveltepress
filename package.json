@@ -8,5 +8,10 @@
     "client",
     "server",
     "frontend"
-  ]
+  ],
+  "scripts": {
+    "dev:server": "yarn workspace server dev",
+    "dev:client": "yarn workspace client dev",
+    "storybook": "yarn workspace client storybook"
+  }
 }
