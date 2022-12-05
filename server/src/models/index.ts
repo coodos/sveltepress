@@ -3,7 +3,7 @@ import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USERNAME } from "../config";
 import { userModel } from "./user.model";
 
 const db = new Sequelize({
-    dialect: "mysql",
+    dialect: "postgres",
     host: DB_HOST,
     port: Number(DB_PORT),
     database: DB_NAME,
