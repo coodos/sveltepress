@@ -1,3 +1,4 @@
+import { databaseResponseTimeHistogram, Logger } from "@/utils";
 import {
     Attributes,
     Identifier,
@@ -16,6 +17,7 @@ export class ModelService<
     T extends Model<InferAttributes<T>, InferCreationAttributes<T>>
 > {
     model: ModelStatic<T>;
+    context: string;
 
     /**
      * Create a new Model Service
@@ -24,6 +26,7 @@ export class ModelService<
      */
     constructor(model: ModelStatic<T>) {
         this.model = model;
+        this.context = model.getTableName().toString();
     }
 
     /**
@@ -35,7 +38,16 @@ export class ModelService<
     async create(
         createOptions: MakeNullishOptional<T["_creationAttributes"]>
     ): Promise<T> {
-        return this.model.create({ ...createOptions });
+        const timer = databaseResponseTimeHistogram.startTimer();
+        const entity = await this.model
+            .create({ ...createOptions })
+            .catch((e) => {
+                timer({ operation: `create ${this.context}`, success: 0 });
+                Logger.error(e);
+                throw new Error(`500::Unable to create ${this.context}`);
+            });
+        timer({ operation: `create ${this.context}`, success: 1 });
+        return entity;
     }
 
     /**
@@ -45,9 +57,18 @@ export class ModelService<
      * @returns Promise<T>
      */
     async findOne(findOpts: WhereOptions<Attributes<T>>): Promise<T> {
-        return this.model.findOne({
-            where: { ...findOpts },
-        });
+        const timer = databaseResponseTimeHistogram.startTimer();
+        const entity = this.model
+            .findOne({
+                where: { ...findOpts },
+            })
+            .catch((e) => {
+                timer({ operation: `findOne ${this.context}`, success: 0 });
+                Logger.error(e);
+                throw new Error(`500::Unable to find ${this.context}`);
+            });
+        timer({ operation: `findOne ${this.context}`, success: 1 });
+        return entity;
     }
 
     /**
@@ -57,9 +78,18 @@ export class ModelService<
      * @returns Promise<T[]>
      */
     async findMany(findOpts: WhereOptions<Attributes<T>>): Promise<T[]> {
-        return this.model.findAll({
-            where: { ...findOpts },
-        });
+        const timer = databaseResponseTimeHistogram.startTimer();
+        const entities = this.model
+            .findAll({
+                where: { ...findOpts },
+            })
+            .catch((e) => {
+                timer({ operation: `findMany ${this.context}`, success: 0 });
+                Logger.error(e);
+                throw new Error(`500::Unable to find ${this.context}`);
+            });
+        timer({ operation: `findMany ${this.context}`, success: 1 });
+        return entities;
     }
 
     /**
@@ -69,7 +99,14 @@ export class ModelService<
      * @returns Promise<T>
      */
     async findById(id: Identifier): Promise<T> {
-        return this.model.findByPk(id);
+        const timer = databaseResponseTimeHistogram.startTimer();
+        const entity = this.model.findByPk(id).catch((e) => {
+            timer({ operation: `findById ${this.context}`, success: 0 });
+            Logger.error(e);
+            throw new Error(`500::Unable find ${this.context}`);
+        });
+        timer({ operation: `findById ${this.context}`, success: 1 });
+        return entity;
     }
 
     /**
@@ -83,11 +120,24 @@ export class ModelService<
         id: Identifier,
         updateParams: Attributes<T>
     ): Promise<T> {
-        const entity = await this.model.findByPk(id);
-        for (const key of Object.keys(entity)) {
+        const timer = databaseResponseTimeHistogram.startTimer();
+        const entity = await this.model.findByPk(id).catch((e) => {
+            timer({ operation: `findById ${this.context}`, success: 0 });
+            Logger.error(e);
+            throw new Error(`500::Unable to find ${this.context}`);
+        });
+
+        for (const key of Object.keys(updateParams)) {
             entity[key] = updateParams[key] ?? entity[key];
         }
-        await entity.save();
+        await entity.save().catch((e) => {
+            timer({ operation: `update ${this.context}`, success: 0 });
+            Logger.error(e);
+            throw new Error(
+                `500::Unable to update ${this.model.getTableName()}`
+            );
+        });
+
         return entity;
     }
 
@@ -98,8 +148,16 @@ export class ModelService<
      * @returns Promise<T>
      */
     async findByIdAndDelete(id: Identifier): Promise<T> {
-        const entity = await this.model.findByPk(id);
+        const timer = databaseResponseTimeHistogram.startTimer();
+        const entity = await this.model.findByPk(id).catch((e) => {
+            timer({ operation: `delete ${this.context}`, success: 0 });
+            Logger.error(e);
+            throw new Error(
+                `500::Unable to delete ${this.model.getTableName()}`
+            );
+        });
         entity.destroy();
+        timer({ operation: "delete", success: 1 });
         return entity;
     }
 }

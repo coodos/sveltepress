@@ -29,7 +29,7 @@ export function initMetricsServer(port: string | number) {
     });
 
     app.listen(port, () => {
-        Logger.info(`Metrics server started at http://localhost:${port}`);
+        Logger.info(`📊: Metrics server started at http://localhost:${port}`);
     });
 }
 

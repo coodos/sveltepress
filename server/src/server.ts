@@ -49,7 +49,7 @@ app.listen(PORT, async () => {
      */
     await db.sync({ force: false });
     initMetricsServer(METRICS_PORT);
-    Logger.info(`Serving docs on http://localhost:${PORT}/api/docs 📝`);
-    Logger.info(`Server started on port ${PORT} 🚀`);
-    Logger.info(`Database connection instantiated 🤠`);
+    Logger.info(`📝: Serving docs on http://localhost:${PORT}/api/docs`);
+    Logger.info(`🚀: Server started on port ${PORT}`);
+    Logger.info(`🤠: Database connection instantiated`);
 });
