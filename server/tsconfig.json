@@ -1,19 +1,19 @@
 {
-    "ts-node": {
-        "require": ["tsconfig-paths/register"]
-    },
-    "compilerOptions": {
-        "rootDir": "./",
-        "module": "CommonJS",
-        "target": "ES2021",
-        "outDir": "./dist",
-        "baseUrl": "src/",
-        "resolveJsonModule": true,
-        "paths": {
-            "@/*": ["./*"]
-        },
-        "esModuleInterop": true,
-        "typeRoots": ["./@types/", "./node_modules/@types/"]
-    },
-    "include": ["src/**/*.ts"]
+	"ts-node": {
+		"require": ["tsconfig-paths/register"]
+	},
+	"compilerOptions": {
+		"rootDir": "./",
+		"module": "CommonJS",
+		"target": "ES2021",
+		"outDir": "./dist",
+		"baseUrl": "src/",
+		"resolveJsonModule": true,
+		"paths": {
+			"@/*": ["./*"]
+		},
+		"esModuleInterop": true,
+		"typeRoots": ["./@types/", "./node_modules/@types/"]
+	},
+	"include": ["src/**/*.ts"]
 }
