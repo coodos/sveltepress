@@ -4,7 +4,7 @@ import { UsersService } from "@/services";
 
 export const createUser = asyncHandler(async (req, res) => {
     const user = await UsersService.create({ ...req.body });
-    res.json(user);
+    res.status(201).json(user);
 });
 
 export const getCurrentUser = asyncHandler(
@@ -30,5 +30,5 @@ export const updateUser = asyncHandler(async (req: Request, res: Response) => {
         req.user[key] = req.body[key] ?? req.user[key];
     }
     await req.user.save();
-    res.json(req.user);
+    res.status(202).json(req.user);
 });

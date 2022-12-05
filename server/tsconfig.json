@@ -3,11 +3,12 @@
         "require": ["tsconfig-paths/register"]
     },
     "compilerOptions": {
-        "rootDir": "src",
+        "rootDir": "./",
         "module": "CommonJS",
         "target": "ES2021",
         "outDir": "./dist",
         "baseUrl": "src/",
+        "resolveJsonModule": true,
         "paths": {
             "@/*": ["./*"]
         },

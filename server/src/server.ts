@@ -1,5 +1,5 @@
 import express from "express";
-import passport, { transformAuthInfo } from "passport";
+import passport from "passport";
 import { ALLOWED_ORIGINS, PORT, SessionConfig } from "@/config";
 import { Logger, initPassport } from "@/utils";
 import { db } from "@/models";
@@ -42,6 +42,7 @@ app.listen(PORT, async () => {
      * this is the `$ sudo rm -rf /*` equivalent to SQL
      */
     await db.sync({ force: false });
+    Logger.info(`Serving docs on http://localhost:${PORT}/api/docs 📝`);
     Logger.info(`Server started on port ${PORT} 🚀`);
     Logger.info(`Database connection instantiated 🤠`);
 });
