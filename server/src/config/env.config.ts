@@ -5,6 +5,7 @@ dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 export const {
     PORT,
+    METRICS_PORT,
     DB_PORT,
     DB_HOST,
     DB_NAME,
