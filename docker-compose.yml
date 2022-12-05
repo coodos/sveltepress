@@ -12,7 +12,7 @@ services:
         volumes:
             - core-db:/var/lib/postgresql/data
         logging:
-            driver: "json-file"
+            driver: none
 
     api:
         container_name: api
@@ -66,12 +66,10 @@ services:
             - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
         command:
             - "--config.file=/etc/prometheus/prometheus.yml"
-        ports:
-            - 9090:9090
         networks:
             - appnet
         logging:
-            driver: "json-file"
+            driver: none
 
     grafana:
         image: grafana/grafana:latest
@@ -87,7 +85,7 @@ services:
         networks:
             - appnet
         logging:
-            driver: "json-file"
+            driver: none
 
 volumes:
     core-db:

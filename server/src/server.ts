@@ -1,6 +1,6 @@
 import express from "express";
 import passport from "passport";
-import { ALLOWED_ORIGINS, METRICS_PORT, PORT, SessionConfig } from "@/config";
+import { METRICS_PORT, PORT, SessionConfig } from "@/config";
 import {
     Logger,
     initPassport,
@@ -9,28 +9,13 @@ import {
 } from "@/utils";
 import { db } from "@/models";
 import { router } from "@/routers";
-import { AppInterceptor, ExpressErrorHandler } from "@/middleware";
-import cors from "cors";
+import { AppInterceptor, ExpressErrorHandler, corsConfig } from "@/middleware";
 
 const app = express();
 initPassport(passport);
 
 app.use(express.json());
-app.use(
-    cors({
-        origin: ALLOWED_ORIGINS,
-        credentials: true,
-        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-        allowedHeaders: [
-            "Origin",
-            "X-Requested-With",
-            "Content-Type",
-            "Accept",
-            "token",
-            "Authorization",
-        ],
-    })
-);
+app.use(corsConfig);
 app.use(SessionConfig);
 app.use(passport.initialize());
 app.use(passport.session());
