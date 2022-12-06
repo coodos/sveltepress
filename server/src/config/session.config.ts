@@ -6,8 +6,8 @@ import SequelizeStore from "connect-session-sequelize";
 const DbStore = SequelizeStore(session.Store);
 
 export const SessionConfig = session({
-    secret: SESSION_SECRET as string,
-    resave: false,
-    saveUninitialized: false,
-    store: new DbStore({ db }),
+	secret: SESSION_SECRET as string,
+	resave: false,
+	saveUninitialized: false,
+	store: new DbStore({ db })
 });

@@ -1,0 +1,9 @@
+{
+	"useTabs": true,
+	"singleQuote": false,
+	"trailingComma": "none",
+	"printWidth": 100,
+	"plugins": ["eslint-plugin-prettier"],
+	"pluginSearchDirs": ["."],
+	"overrides": [{ "files": "*.ts", "options": { "parser": "typescript" } }]
+}
