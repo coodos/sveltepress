@@ -3,6 +3,8 @@ import path from "path";
 
 dotenv.config({ path: path.resolve(__dirname, "../../../.env") });
 
+console.log(process.env.ALLOWED_ORIGINS);
+
 export const {
 	PORT,
 	METRICS_PORT,
