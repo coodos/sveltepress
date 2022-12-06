@@ -1,5 +1,6 @@
 import express from "express";
 import passport from "passport";
+import cors from "cors";
 import { METRICS_PORT, PORT, SessionConfig } from "@/config";
 import { Logger, initPassport, initRestMetrics, initMetricsServer } from "@/utils";
 import { db } from "@/models";
@@ -10,7 +11,7 @@ const app = express();
 initPassport(passport);
 
 app.use(express.json());
-app.use(corsConfig);
+app.use(cors(corsConfig));
 app.use(SessionConfig);
 app.use(passport.initialize());
 app.use(passport.session());
