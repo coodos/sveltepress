@@ -1,6 +1,6 @@
 <script lang="ts">
-import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-import Avatar from "./Avatar.svelte";
+	import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
+	import Avatar from "./Avatar.svelte";
 </script>
 
 <Meta title="Avatar" component="{Avatar}" />

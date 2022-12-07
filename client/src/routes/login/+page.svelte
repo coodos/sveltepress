@@ -1,14 +1,14 @@
 <script lang="ts">
-import { Card, TextInput, Button } from "$lib/components/ui";
-import { axios } from "$lib/utils/axios.utils";
+	import { Card, TextInput, Button } from "$lib/components/ui";
+	import { axios } from "$lib/utils/axios.utils";
 
-let email: string;
-let password: string;
+	let email: string;
+	let password: string;
 
-const onClick = async () => {
-	const login = await axios.post("/users/login", { email, password });
-	window.location.pathname = "/dashboard";
-};
+	const onClick = async () => {
+		const login = await axios.post("/users/login", { email, password });
+		window.location.pathname = "/dashboard";
+	};
 </script>
 
 <Card>

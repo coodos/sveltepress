@@ -1,6 +1,6 @@
 <script>
-import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-import Card from "./Card.svelte";
+	import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
+	import Card from "./Card.svelte";
 </script>
 
 <Meta title="Card" component="{Card}" />
