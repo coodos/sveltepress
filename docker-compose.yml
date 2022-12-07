@@ -11,8 +11,7 @@ services:
             - appnet
         volumes:
             - core-db:/var/lib/postgresql/data
-        logging:
-            driver: none
+        command: "-c logging_collector=on"
 
     api:
         container_name: api

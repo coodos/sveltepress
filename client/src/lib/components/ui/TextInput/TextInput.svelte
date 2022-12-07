@@ -24,6 +24,7 @@
 		border: 1.5px solid var(--border);
 		border-radius: 5px;
 		font-family: var(--body-fonmt);
+		background-color: var(--body-background);
 		width: 100%;
 		box-sizing: border-box;
 		resize: none;

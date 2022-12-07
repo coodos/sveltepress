@@ -15,7 +15,7 @@
 	};
 </script>
 
-<Meta title="Button" component={Button} />s
+<Meta title="Button" component={Button} />
 
 <Template let:args>
 	<Button {...args} />
