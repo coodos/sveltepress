@@ -1,13 +1,13 @@
 <script lang="ts">
-import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-import Button from "../Button/Button.svelte";
-import Modal from "./Modal.svelte";
+	import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
+	import Button from "../Button/Button.svelte";
+	import Modal from "./Modal.svelte";
 
-let isOpen = false;
+	let isOpen = false;
 
-function setIsOpen(state: boolean) {
-	isOpen = state;
-}
+	function setIsOpen(state: boolean) {
+		isOpen = state;
+	}
 </script>
 
 <Meta title="Modal" component="{Modal}" />

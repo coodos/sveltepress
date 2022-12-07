@@ -1,25 +1,25 @@
 <style>
-.loading {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	width: 100vw;
-	position: absolute;
-}
+	.loading {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		width: 100vw;
+		position: absolute;
+	}
 </style>
 
 <script lang="ts">
-import Avatar from "$lib/components/ui/Avatar/Avatar.svelte";
-import Button from "$lib/components/ui/Button/Button.svelte";
-import { axios } from "$lib/utils/axios.utils";
+	import Avatar from "$lib/components/ui/Avatar/Avatar.svelte";
+	import Button from "$lib/components/ui/Button/Button.svelte";
+	import { axios } from "$lib/utils/axios.utils";
 
-async function loadPage() {
-	const { data } = await axios.get("/users");
-	return data;
-}
+	async function loadPage() {
+		const { data } = await axios.get("/users");
+		return data;
+	}
 
-const load = loadPage();
+	const load = loadPage();
 </script>
 
 {#await load}

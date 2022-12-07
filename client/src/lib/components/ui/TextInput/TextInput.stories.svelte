@@ -1,8 +1,8 @@
 <script lang="ts">
-import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-import TextInput from "./TextInput.svelte";
+	import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
+	import TextInput from "./TextInput.svelte";
 
-let value: string;
+	let value: string;
 </script>
 
 <Meta title="TextInput" component="{TextInput}" />
