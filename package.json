@@ -6,12 +6,15 @@
   "private": true,
   "workspaces": [
     "client",
-    "server",
-    "frontend"
+    "server"
   ],
   "scripts": {
+    "prepare": "husky install",
     "dev:server": "yarn workspace server dev",
     "dev:client": "yarn workspace client dev",
     "storybook": "yarn workspace client storybook"
+  },
+  "devDependencies": {
+    "husky": "^8.0.2"
   }
 }
