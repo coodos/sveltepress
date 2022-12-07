@@ -15,7 +15,7 @@ function setIsOpen(state: boolean) {
 <Template>
 	<Button label="show modal" onClick="{() => setIsOpen(true)}" />
 	<Modal isOpen="{isOpen}" setIsOpen="{setIsOpen}">
-		<h1 slot="header">The Final Solution</h1>
+		<h1 slot="header">A very normal title</h1>
 		<div class="modal-body">
 			<p>
 				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur assumenda totam dolores

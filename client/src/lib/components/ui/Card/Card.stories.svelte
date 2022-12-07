@@ -6,7 +6,7 @@ import Card from "./Card.svelte";
 <Meta title="Card" component="{Card}" />
 
 <Template>
-	<Card><h1>Hey there soham my man</h1></Card>
+	<Card><h1>Hey there, please consider investing in DOGE</h1></Card>
 </Template>
 
 <Story name="Card" />
