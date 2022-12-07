@@ -1,4 +1,4 @@
-<style>
+<style lang="scss">
 	.backdrop {
 		position: absolute;
 		top: 0;
@@ -20,22 +20,22 @@
 		border-radius: 5px;
 		max-width: 90vw;
 		min-width: 600px;
-	}
 
-	.modal-header {
-		padding-bottom: 10px;
-		border-bottom: 1px solid var(--border);
-	}
+		.modal-header {
+			padding-bottom: 10px;
+			border-bottom: 1px solid var(--border);
+		}
 
-	.modal .modal-content {
-		position: relative;
-	}
+		.modal-content {
+			position: relative;
+		}
 
-	.modal .close-button {
-		position: absolute;
-		top: 0;
-		right: 0;
-		background-color: back;
+		.close-button {
+			position: absolute;
+			top: 0;
+			right: 0;
+			background-color: back;
+		}
 	}
 
 	@media only screen and (max-width: 700px) {

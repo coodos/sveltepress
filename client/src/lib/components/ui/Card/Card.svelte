@@ -1,4 +1,4 @@
-<style>
+<style lang="scss">
 	.card {
 		box-shadow: var(--box-shadow);
 		background-color: var(--body-background);

@@ -1,4 +1,4 @@
-<style>
+<style lang="scss">
 	.text-input,
 	.text-input-block {
 		padding: 8px 16px;
@@ -13,16 +13,14 @@
 		box-sizing: border-box;
 		resize: none;
 		transition: all 400ms;
-	}
 
-	.text-input:focus,
-	.text-input-block:focus {
-		border: 1.5px solid var(--highlight);
-	}
+		&:focus {
+			border: 1.5px solid var(--highlight);
+		}
 
-	.text-input:hover,
-	.text-input-block:hover {
-		border: 1.5px solid var(--highlight-hover);
+		&:hover {
+			border: 1.5px solid var(--highlight-hover);
+		}
 	}
 </style>
 

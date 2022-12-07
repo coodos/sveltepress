@@ -1,4 +1,4 @@
-<style>
+<style lang="scss">
 	.button {
 		background-color: var(--primary);
 		padding: 8px 16px;
@@ -8,20 +8,20 @@
 		border-radius: 5px;
 		font-size: 1rem;
 		outline: none;
-	}
 
-	.button:hover {
-		cursor: pointer;
-		background-color: var(--primary-hover);
+		&:hover {
+			cursor: pointer;
+			background-color: var(--primary-hover);
+		}
 	}
 
 	.alternative {
 		background-color: var(--secondary);
 		color: var(--secondary-alt);
-	}
 
-	.alternative:hover {
-		background-color: var(--secondary-hover);
+		&:hover {
+			background-color: var(--secondary-hover);
+		}
 	}
 
 	.small {
