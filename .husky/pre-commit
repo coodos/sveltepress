@@ -3,4 +3,4 @@
 
 yarn workspaces run format-check
 yarn workspaces run lint 
-yarn workspaces run build
+yarn workspace server run build
