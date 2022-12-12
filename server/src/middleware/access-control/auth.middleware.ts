@@ -1,4 +1,3 @@
-import { validateJsonWebToken } from "@/utils";
 import { NextFunction, Request, Response } from "express";
 
 export const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {

@@ -16,4 +16,7 @@ const db = new Sequelize({
 export const User = userModel(db);
 export const Session = sessionModel(db);
 
+User.hasOne(Session, { foreignKey: "userId" });
+Session.belongsTo(User, { foreignKey: "userId" });
+
 export { db };

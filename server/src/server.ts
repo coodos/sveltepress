@@ -9,7 +9,6 @@ import { ExpressErrorHandler, corsConfig } from "@/middleware";
 import { userDeserializer } from "./middleware/auth/auth.middleware";
 
 const app = express();
-// initPassport(passport);
 
 app.use(cookieParser());
 app.use(express.json());

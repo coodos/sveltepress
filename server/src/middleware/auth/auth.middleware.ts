@@ -1,30 +1,35 @@
-import { UsersService } from "@/services";
+import { SessionsService, UsersService } from "@/services";
 import { createJsonWebToken, validateJsonWebToken } from "@/utils";
 import { NextFunction, Request, Response } from "express";
 
 export const userDeserializer = async (req: Request, res: Response, next: NextFunction) => {
 	const { accessToken, refreshToken } = req.cookies;
 
-	if (!accessToken) next();
+	if (!accessToken) return next();
 
 	const { payload, expired } = validateJsonWebToken(accessToken);
 
 	if (payload) {
-		req.user = await UsersService.findById(payload.id);
-		next();
+		req.session = payload;
+		req.user = await UsersService.findById(payload.userId);
+		return next();
 	}
 
 	const { payload: refresh } =
-		expired && refreshToken ? validateJsonWebToken(refreshToken) : { payload: null };
-	const session = getSession(refresh.sessionId);
+		!expired && refreshToken ? validateJsonWebToken(refreshToken) : { payload: null };
+	if (!refresh) return next();
+	const { id, userId } = await SessionsService.findOne({ id: refresh.sessionId });
 
-	if (!session) return next();
-	const token = createJsonWebToken(session);
+	if (!userId) return next();
+	const token = createJsonWebToken({ userId, id });
 
 	res.cookie("accessToken", token, {
 		maxAge: 60 * 60 * 1000,
 		httpOnly: true
 	});
+
+	req.session = validateJsonWebToken(token).payload;
+	req.user = await UsersService.findById(userId);
 
 	return next();
 };

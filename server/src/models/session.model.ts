@@ -4,10 +4,10 @@ import {
 	Sequelize,
 	InferAttributes,
 	InferCreationAttributes,
-	CreationOptional
+	CreationOptional,
+	ForeignKey
 } from "sequelize";
-import bcrypt from "bcryptjs";
-import { User } from ".";
+import { UserModel } from "./user.model";
 
 export class SessionModel extends Model<
 	InferAttributes<SessionModel>,
@@ -15,6 +15,7 @@ export class SessionModel extends Model<
 > {
 	declare id: CreationOptional<string>;
 	declare isValid: CreationOptional<boolean>;
+	declare userId: ForeignKey<UserModel["id"]>;
 }
 
 export const sessionModel = (db: Sequelize) => {
@@ -29,7 +30,8 @@ export const sessionModel = (db: Sequelize) => {
 			},
 			isValid: {
 				type: DataTypes.BOOLEAN,
-				defaultValue: true
+				defaultValue: true,
+				allowNull: false
 			}
 		},
 		{
@@ -37,8 +39,6 @@ export const sessionModel = (db: Sequelize) => {
 			modelName: "UserSession"
 		}
 	);
-
-	SessionModel.belongsTo(User, { foreignKey: "UserSession" });
 
 	return SessionModel;
 };
