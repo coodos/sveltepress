@@ -1,5 +1,4 @@
 import { Router } from "express";
-import passport from "passport";
 import { createUser, getCurrentUser, loginUser, logoutUser, updateUser } from "@/controllers";
 import { isAuthenticated, useDto } from "@/middleware";
 import { CreateUserDto, UpdateUserDto } from "@/validators";
