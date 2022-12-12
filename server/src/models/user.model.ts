@@ -7,6 +7,7 @@ import {
 	CreationOptional
 } from "sequelize";
 import bcrypt from "bcryptjs";
+import { Session } from ".";
 
 export class UserModel extends Model<
 	InferAttributes<UserModel>,
@@ -59,6 +60,8 @@ export const userModel = (db: Sequelize) => {
 			}
 		}
 	);
+
+	UserModel.hasOne(Session, { foreignKey: "UserSession" });
 
 	return UserModel;
 };
