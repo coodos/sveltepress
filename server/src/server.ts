@@ -1,20 +1,19 @@
 import express from "express";
-import passport from "passport";
 import cors from "cors";
-import { METRICS_PORT, PORT, SessionConfig } from "@/config";
-import { Logger, initPassport, initRestMetrics, initMetricsServer } from "@/utils";
+import cookieParser from "cookie-parser";
+import { METRICS_PORT, PORT } from "@/config";
+import { Logger, initRestMetrics, initMetricsServer } from "@/utils";
 import { db } from "@/models";
 import { router } from "@/routers";
-import { AppInterceptor, ExpressErrorHandler, corsConfig } from "@/middleware";
+import { ExpressErrorHandler, corsConfig, AppInterceptor } from "@/middleware";
+import { userDeserializer } from "./middleware/auth/auth.middleware";
 
 const app = express();
-initPassport(passport);
 
+app.use(cookieParser());
 app.use(express.json());
+app.use(userDeserializer);
 app.use(cors(corsConfig));
-app.use(SessionConfig);
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(initRestMetrics);
 
 app.use(AppInterceptor);

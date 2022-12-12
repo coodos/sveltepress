@@ -1,4 +1,5 @@
 import { ModelService } from "./model.service";
-import { User } from "@/models";
+import { Session, User } from "@/models";
 
 export const UsersService = new ModelService(User);
+export const SessionsService = new ModelService(Session);
