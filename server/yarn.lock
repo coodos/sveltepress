@@ -199,6 +199,13 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/hijackresponse@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/hijackresponse/-/hijackresponse-4.0.0.tgz#4bb8e0845c4f6da612754af5fd7425026a3fa96f"
+  integrity sha512-UYyqyHMwhdkRknZEjkzuw/lCxsG4tunMT8HATMjrRweozLgEizte5Ac+znWPfgN/QHat4+dMhh8kBPgaB0d2cg==
+  dependencies:
+    "@types/express" "*"
+
 "@types/json-schema@^7.0.6", "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
@@ -442,6 +449,11 @@ array-union@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/array-union/-/array-union-2.1.0.tgz#b798420adbeb1de828d84acd8a2e23d3efe85e8d"
   integrity sha512-HGyxoOTYUyCM6stUe6EJgnd4EoewAI7zMdfqO+kGjnlZmBDz/cR5pf8r/cR4Wq60sL/p0IkcjUEEPwS3GFrIyw==
+
+async-request-handler@^0.8.8:
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/async-request-handler/-/async-request-handler-0.8.8.tgz#bf8ec58dae64f905c4726aa60199d4cd01af5779"
+  integrity sha512-B2vn6+gVOWTlRGfpTSWi0Ye/oWwaQ7LFKm1NzkQQFGIQijnz4v+DopeTu4uveqoQf1xQaQP5QaZNQJnWQxs/3w==
 
 atomic-sleep@^1.0.0:
   version "1.0.0"
@@ -918,12 +930,12 @@ express-async-handler@^1.2.0:
   resolved "https://registry.yarnpkg.com/express-async-handler/-/express-async-handler-1.2.0.tgz#ffc9896061d90f8d2e71a2d2b8668db5b0934391"
   integrity sha512-rCSVtPXRmQSW8rmik/AIb2P0op6l7r1fMW538yyvTMltCO4xQEWMmobfrIxN2V1/mVrgxB8Az3reYF6yUZw37w==
 
-express-multi-hijack@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/express-multi-hijack/-/express-multi-hijack-1.0.1.tgz#dfc84b13ea6786b5c6e102cefe0b40741f0f6103"
-  integrity sha512-TKWnxp+kp49iV4aFq/Zu2o/9/pgs4h0Whk9ri4wFzcKwxxszkr+zmjp3EBdoBlunLOk/yI8PoRsIqPFC6mZAlQ==
+express-intercept@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/express-intercept/-/express-intercept-1.0.0.tgz#073bf6170a77b153ce8d64febda126bd8344c344"
+  integrity sha512-l4PdBQvRF6LitPl9vpbCtekn5XVO4VEZSf3ckEjcKTirWo6AM0uAeZUfe/c2qcWQOpWIyAOlrXPI8pMn3lTFFw==
   dependencies:
-    nanoid "^3.1.23"
+    async-request-handler "^0.8.8"
 
 express@^4.18.2:
   version "4.18.2"
@@ -1545,11 +1557,6 @@ ms@2.1.3, ms@^2.1.1:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
-
-nanoid@^3.1.23:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
-  integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
 
 natural-compare-lite@^1.4.0:
   version "1.4.0"
