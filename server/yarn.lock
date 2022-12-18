@@ -199,13 +199,6 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
-"@types/hijackresponse@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/hijackresponse/-/hijackresponse-4.0.0.tgz#4bb8e0845c4f6da612754af5fd7425026a3fa96f"
-  integrity sha512-UYyqyHMwhdkRknZEjkzuw/lCxsG4tunMT8HATMjrRweozLgEizte5Ac+znWPfgN/QHat4+dMhh8kBPgaB0d2cg==
-  dependencies:
-    "@types/express" "*"
-
 "@types/json-schema@^7.0.6", "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
